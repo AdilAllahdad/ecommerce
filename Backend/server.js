@@ -1,43 +1,3 @@
-// const express = require("express");
-// const bodyParser = require("body-parser");
-// const cors = require("cors");
-// const connectDB = require("./config/db");
-// const userRoutes = require("./routes/userRoutes");
-
-// // Initialize Express app
-// const app = express();
-
-// // Middleware setup
-// app.use(bodyParser.json());
-// app.use(cors());
-
-// // Logging middleware
-// const loggerMiddleware = (req, res, next) => {
-//   console.log(`Received a ${req.method} request to ${req.url}`);
-//   next();
-// };
-
-// app.use(loggerMiddleware);
-
-// // Connect to database
-// connectDB();
-
-// // Routes setup
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
-// app.use("/api", userRoutes);
-
-// // Start the server
-// const PORT = process.env.PORT || 3001;
-// app.listen(PORT, () => {
-//   console.log(`Server running on port ${PORT}`);
-// });
-
-
-
-
-// ------------------
-
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
@@ -75,7 +35,7 @@ mongoose.connect(process.env.MONGO_URI)
   .catch((err) => console.log(err));
 
 
-app.listen(5000, () => console.log("Server running on port 5000"));
+app.listen(process.env.PORT, () => console.log("Server running on port 5000"));
 
 
 
